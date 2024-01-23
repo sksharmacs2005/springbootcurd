@@ -62,6 +62,12 @@ public class EmployeeController {
         List<Employee> byempNameAndAddress = employeeRepository.findByempNameAndAddress(empName, address);
         return new ResponseEntity<>(byempNameAndAddress,HttpStatus.OK);
     }
+    @GetMapping("/empNameOrAddress") //http://localhost:8081/emp/v1/empNameOrAddress?empName=Sujeet Sharma&address=New Delhi
+    public ResponseEntity<List<Employee>> getEmployeeOrAddress(@RequestParam String empName,String address)
+    {
+        List<Employee> byempNameOrddress = employeeRepository.findByempNameOrAddress(empName, address);
+        return new ResponseEntity<>(byempNameOrddress,HttpStatus.OK);
+    }
 }
 
 
