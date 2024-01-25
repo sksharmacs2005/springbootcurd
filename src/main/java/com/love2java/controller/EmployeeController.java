@@ -18,6 +18,8 @@ public class EmployeeController {
     private EmployeeService employeeService;
     private EmployeeRepository employeeRepository;
 
+    //Run Spring Boot project. Open browser with url:
+    //http://localhost:8080/swagger-ui/index.html
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         Employee addEmployee = employeeService.addEmployee(employee);
@@ -25,7 +27,7 @@ public class EmployeeController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long empId) {
+      public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long empId) {
         Employee employeeById = employeeService.getEmployeeById(empId);
         return new ResponseEntity<>(employeeById, HttpStatus.OK);
     }
